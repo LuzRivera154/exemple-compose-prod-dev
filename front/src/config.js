@@ -1,0 +1,1 @@
+export const BACK_ORIGIN = import.meta.env.VITE_BACK_ORIGIN;

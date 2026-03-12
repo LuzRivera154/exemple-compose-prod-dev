@@ -1,0 +1,14 @@
+FROM node
+
+WORKDIR /app
+ARG VITE_BACK_ORIGIN
+ENV VITE_BACK_ORIGIN=$VITE_BACK_ORIGIN
+COPY . .
+# npm install
+RUN npm install
+
+EXPOSE 5173
+
+
+# run the dev server when the container starts
+ENTRYPOINT [ "npm","run","devhost" ]

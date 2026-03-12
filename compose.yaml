@@ -1,0 +1,18 @@
+services:
+
+  front:
+      build:
+        context: ./front
+    # image: username/front
+    # ports is NOT HERE look compose.dev.yaml and compose.prod.yaml
+    # build is NOT HERE look compose.dev.yaml and compose.prod.yaml
+
+
+  back:
+    # image: username/back
+    build: ./back
+    ports:
+      - "3004:3000"
+    environment:
+      - PORT=3000
+      # - VITE_BACK_ORIGIN=http://whiletrue.fr:3004

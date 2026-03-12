@@ -1,0 +1,20 @@
+services:
+
+  front:
+      ports:
+        - "8004:5173"
+      build:
+        dockerfile: Dockerfile.dev
+        args:
+          - VITE_BACK_ORIGIN=http://localhost:3004
+      volumes:
+        - type: bind
+          source: ./front
+          target: /app 
+  back:
+    environment:
+      - FRONT_ORIGIN=http://localhost:8004
+    volumes:
+      - type: bind
+        source: ./back
+        target: /app

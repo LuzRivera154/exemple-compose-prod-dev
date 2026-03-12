@@ -1,0 +1,15 @@
+services:
+
+  front:
+      ports:
+        - "8004:80"
+      build:
+        dockerfile: Dockerfile.prod
+        args:
+          - VITE_BACK_ORIGIN=http://whiletrue.fr:3004
+
+
+  back:
+    environment:
+      - FRONT_ORIGIN=http://whiletrue.fr:8004
+   
